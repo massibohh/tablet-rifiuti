@@ -1,6 +1,6 @@
 export default {
   async fetch(request) {
-    return new Response("WORKER FUNZIONANTE!", {
+    return new Response("ziopera", {
       headers: {
         "Content-Type": "text/plain"
       }
