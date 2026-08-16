@@ -7,66 +7,77 @@ export default {
     // CORS
     if (request.method === "OPTIONS") {
       return new Response(null, {
-        headers: corsHeaders()
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type"
+        }
       });
     }
 
-    // INVIA MESSAGGIO
-    if (request.method === "POST" && url.pathname === "/message") {
-      try {
-        const body = await request.json();
-
-        if (!body.message || typeof body.message !== "string") {
-          return json(
-            { error: "Messaggio non valido." },
-            400
-          );
+    // Pagina principale
+    if (request.method === "GET" && url.pathname === "/") {
+      return new Response(`
+        <!DOCTYPE html>
+        <html lang="it">
+        <head>
+          <meta charset="UTF-8">
+          <title>Tablet Casa API</title>
+        </head>
+        <body>
+          <h1>📱 Tablet Casa API</h1>
+          <p>Worker online.</p>
+        </body>
+        </html>
+      `, {
+        headers: {
+          "Content-Type": "text/html; charset=UTF-8"
         }
-
-        const message = body.message.trim();
-
-        if (!message) {
-          return json(
-            { error: "Il messaggio è vuoto." },
-            400
-          );
-        }
-
-        if (message.length > 300) {
-          return json(
-            { error: "Il messaggio è troppo lungo." },
-            400
-          );
-        }
-
-        currentMessage = {
-          id: Date.now(),
-          message: message,
-          read: false,
-          createdAt: new Date().toISOString()
-        };
-
-        return json({
-          success: true,
-          message: "Messaggio inviato."
-        });
-
-      } catch {
-        return json(
-          { error: "Richiesta non valida." },
-          400
-        );
-      }
+      });
     }
 
-    // IL TABLET CONTROLLA SE C'È UN MESSAGGIO
+    // Controlla messaggio
     if (request.method === "GET" && url.pathname === "/message") {
       return json({
         message: currentMessage
       });
     }
 
-    // IL TABLET SEGNA IL MESSAGGIO COME LETTO
+    // Invia messaggio
+    if (request.method === "POST" && url.pathname === "/message") {
+      try {
+        const body = await request.json();
+
+        if (
+          !body.message ||
+          typeof body.message !== "string" ||
+          !body.message.trim()
+        ) {
+          return json({
+            error: "Messaggio non valido."
+          }, 400);
+        }
+
+        currentMessage = {
+          id: Date.now(),
+          message: body.message.trim(),
+          read: false,
+          createdAt: new Date().toISOString()
+        };
+
+        return json({
+          success: true,
+          message: currentMessage
+        });
+
+      } catch {
+        return json({
+          error: "JSON non valido."
+        }, 400);
+      }
+    }
+
+    // Segna come letto
     if (
       request.method === "POST" &&
       url.pathname === "/message/read"
@@ -80,10 +91,9 @@ export default {
       });
     }
 
-    return new Response("Not Found", {
-      status: 404,
-      headers: corsHeaders()
-    });
+    return json({
+      error: "Endpoint non trovato."
+    }, 404);
   }
 };
 
@@ -92,15 +102,7 @@ function json(data, status = 200) {
     status,
     headers: {
       "Content-Type": "application/json",
-      ...corsHeaders()
+      "Access-Control-Allow-Origin": "*"
     }
   });
-}
-
-function corsHeaders() {
-  return {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type"
-  };
 }
