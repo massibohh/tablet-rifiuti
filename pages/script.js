@@ -1,4 +1,4 @@
-const WORKER_URL = "INSERISCI_QUI_L_URL_DEL_WORKER";
+const WORKER_URL = "https://tablet-rifiuti-api.massibohhdeveloper.workers.dev";
 
 const messageInput = document.getElementById("message");
 const sendButton = document.getElementById("sendButton");
