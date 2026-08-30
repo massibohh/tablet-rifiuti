@@ -3,34 +3,48 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
-  width: 800px;
-  height: 480px;
-  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
   font-family: Arial, sans-serif;
+  background: #ffffff;
 }
 
 #app {
-  width: 800px;
-  height: 480px;
+  width: 100%;
+  max-width: 800px;
+  min-height: 480px;
+  margin: auto;
 }
 
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 30px;
+}
+
+#title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#clock {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 main {
   text-align: center;
-  width: 100%;
-  height: 420px;
+  min-height: 400px;
   padding: 10px 30px;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 button {
@@ -39,24 +53,30 @@ button {
   border: none;
   border-radius: 15px;
   cursor: pointer;
+  background: #eeeeee;
 }
 
-#waste {
-  font-size: 40px;
-  font-weight: bold;
-  margin: 20px;
-}
-
-#waste-image {
-  height: 150px;
-}
-
-#clock {
-  font-size: 30px;
+button:active {
+  transform: scale(0.96);
 }
 
 #date {
   font-size: 25px;
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+#waste {
+  font-size: 38px;
+  font-weight: bold;
+  margin: 25px 0;
+}
+
+#waste-image {
+  height: 120px;
 }
 
 .navigation {
@@ -76,16 +96,14 @@ button {
   max-width: 650px;
 }
 
-/* Pulsante nascosto per la modalità test */
+/* Pulsante TEST invisibile */
 #test-message {
   position: fixed;
   right: 0;
   bottom: 0;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   opacity: 0;
-  border: none;
-  background: transparent;
   z-index: 9999;
 }
 ```
