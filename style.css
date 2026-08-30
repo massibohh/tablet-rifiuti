@@ -1,103 +1,91 @@
+```css
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  width: 800px;
+  height: 480px;
+  overflow: hidden;
   font-family: Arial, sans-serif;
-  background: #f2f2f2;
-  color: #222;
 }
 
-.container {
-  width: min(90%, 500px);
-  padding: 35px;
+#app {
+  width: 800px;
+  height: 480px;
+}
 
-  background: white;
-  border-radius: 24px;
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+}
 
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
-
+main {
   text-align: center;
-}
-
-.icon {
-  font-size: 50px;
-}
-
-h1 {
-  margin: 10px 0 5px;
-  font-size: 30px;
-}
-
-.subtitle {
-  margin-top: 0;
-  color: #777;
-}
-
-textarea {
   width: 100%;
-  height: 150px;
-
-  margin-top: 20px;
-  padding: 15px;
-
-  border: 2px solid #ddd;
-  border-radius: 15px;
-
-  font-size: 17px;
-  font-family: inherit;
-
-  resize: none;
-  outline: none;
+  height: 420px;
+  padding: 10px 30px;
 }
 
-textarea:focus {
-  border-color: #555;
-}
-
-.counter {
-  text-align: right;
-  color: #888;
-  font-size: 13px;
-  margin-top: 5px;
+.hidden {
+  display: none;
 }
 
 button {
-  width: 100%;
-
-  margin-top: 20px;
-  padding: 15px;
-
+  padding: 15px 30px;
+  font-size: 22px;
   border: none;
-  border-radius: 14px;
-
-  background: #222;
-  color: white;
-
-  font-size: 17px;
-  font-weight: bold;
-
+  border-radius: 15px;
   cursor: pointer;
 }
 
-button:hover {
-  opacity: 0.85;
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-#status {
-  min-height: 20px;
-  margin-bottom: 0;
+#waste {
+  font-size: 40px;
   font-weight: bold;
+  margin: 20px;
 }
+
+#waste-image {
+  height: 150px;
+}
+
+#clock {
+  font-size: 30px;
+}
+
+#date {
+  font-size: 25px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.notification {
+  font-size: 120px;
+  margin-top: 40px;
+}
+
+#message-text {
+  font-size: 32px;
+  margin: 50px auto;
+  max-width: 650px;
+}
+
+/* Pulsante nascosto per la modalità test */
+#test-message {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  border: none;
+  background: transparent;
+  z-index: 9999;
+}
+```
