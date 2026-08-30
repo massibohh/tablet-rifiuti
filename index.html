@@ -2,38 +2,72 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=800, initial-scale=1.0">
   <title>Tablet Casa</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <main class="container">
+  <div id="app">
 
-    <div class="icon">📱</div>
+    <header>
+      <div id="title">TABLET CASA</div>
+      <div id="clock">00:00</div>
+    </header>
 
-    <h1>Tablet Casa</h1>
-    <p class="subtitle">Invia un messaggio al tablet</p>
+    <main id="home">
+      <div id="date"></div>
 
-    <textarea
-      id="message"
-      maxlength="300"
-      placeholder="Scrivi qui il messaggio..."
-    ></textarea>
+      <h1>OGGI</h1>
 
-    <div class="counter">
-      <span id="count">0</span>/300
-    </div>
+      <div id="waste"></div>
 
-    <button id="sendButton">
-      📤 Invia messaggio
-    </button>
+      <div id="waste-image"></div>
 
-    <p id="status"></p>
+      <button onclick="showCalendar()">🗓️ CALENDARIO</button>
+    </main>
 
-  </main>
+    <main id="calendar" class="hidden">
 
-  <script src="script.js"></script>
+      <button onclick="showHome()">🏠</button>
+
+      <h1>🗓️ CALENDARIO</h1>
+
+      <div id="calendar-date"></div>
+      <div id="calendar-waste"></div>
+
+      <div class="navigation">
+        <button onclick="previousDay()">←</button>
+        <button onclick="nextDay()">→</button>
+      </div>
+
+    </main>
+
+    <main id="message" class="hidden">
+
+      <div class="notification">🔔</div>
+
+      <h1>NUOVO MESSAGGIO</h1>
+
+      <button onclick="readMessage()">TOCCA PER LEGGERE</button>
+
+    </main>
+
+    <main id="message-content" class="hidden">
+
+      <h1>💬 MESSAGGIO</h1>
+
+      <div id="message-text"></div>
+
+      <button onclick="closeMessage()">OK</button>
+
+    </main>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+
 </body>
 </html>
