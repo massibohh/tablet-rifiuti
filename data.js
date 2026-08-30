@@ -1,3 +1,4 @@
+```javascript
 const wasteCalendar = {
   0: ["🟤 VETRO", "🟢 ORGANICO"],
   1: ["🟡 PLASTICA", "⚪ METALLO"],
@@ -7,3 +8,4 @@ const wasteCalendar = {
   5: ["⚫ RESIDUO NON RICICLABILE"],
   6: []
 };
+```
