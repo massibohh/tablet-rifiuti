@@ -1,3 +1,4 @@
+```javascript
 let selectedDate = new Date();
 
 function updateClock() {
@@ -37,6 +38,7 @@ function showHome() {
 function showCalendar() {
   hideAll();
   document.getElementById("calendar").classList.remove("hidden");
+  selectedDate = new Date();
   updateCalendar();
 }
 
@@ -86,7 +88,13 @@ function closeMessage() {
   showHome();
 }
 
+/* MODALITÀ TEST */
+function showTestMessage() {
+  showMessage("Questo è un messaggio di TEST 🔔");
+}
+
 updateClock();
 updateHome();
 
 setInterval(updateClock, 1000);
+```
