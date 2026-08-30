@@ -3,7 +3,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=800, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tablet Casa</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,37 +13,40 @@
   <div id="app">
 
     <header>
-      <div id="title">TABLET CASA</div>
-      <div id="clock">00:00</div>
+      <div id="title">📱 TABLET CASA</div>
+      <div id="clock">Caricamento...</div>
     </header>
 
     <main id="home">
-      <div id="date"></div>
+      <div id="date">Caricamento...</div>
 
       <h1>OGGI</h1>
 
-      <div id="waste"></div>
+      <div id="waste">Caricamento...</div>
 
       <div id="waste-image"></div>
 
-      <button onclick="showCalendar()">🗓️ CALENDARIO</button>
+      <button id="calendar-button">🗓️ CALENDARIO</button>
     </main>
+
 
     <main id="calendar" class="hidden">
 
-      <button onclick="showHome()">🏠</button>
+      <button id="home-button">🏠</button>
 
       <h1>🗓️ CALENDARIO</h1>
 
       <div id="calendar-date"></div>
+
       <div id="calendar-waste"></div>
 
       <div class="navigation">
-        <button onclick="previousDay()">←</button>
-        <button onclick="nextDay()">→</button>
+        <button id="previous-button">←</button>
+        <button id="next-button">→</button>
       </div>
 
     </main>
+
 
     <main id="message" class="hidden">
 
@@ -51,9 +54,10 @@
 
       <h1>NUOVO MESSAGGIO</h1>
 
-      <button onclick="readMessage()">TOCCA PER LEGGERE</button>
+      <button id="read-button">TOCCA PER LEGGERE</button>
 
     </main>
+
 
     <main id="message-content" class="hidden">
 
@@ -61,14 +65,16 @@
 
       <div id="message-text"></div>
 
-      <button onclick="closeMessage()">OK</button>
+      <button id="ok-button">OK</button>
 
     </main>
 
   </div>
 
-  <!-- Pulsante nascosto per il test -->
-  <button id="test-message" onclick="showTestMessage()"></button>
+
+  <!-- ZONA TEST INVISIBILE -->
+  <button id="test-message"></button>
+
 
   <script src="data.js"></script>
   <script src="app.js"></script>
