@@ -1,109 +1,351 @@
-```css
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
   font-family: Arial, sans-serif;
-  background: #ffffff;
 }
+
+body {
+  background: #000;
+}
+
+
+/* =========================
+   TABLET
+========================= */
 
 #app {
-  width: 100%;
-  max-width: 800px;
-  min-height: 480px;
-  margin: auto;
+  width: 800px;
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 30px;
-}
 
-#title {
-  font-size: 28px;
-  font-weight: bold;
-}
-
-#clock {
-  font-size: 30px;
-  font-weight: bold;
-}
+/* =========================
+   PAGINE
+========================= */
 
 main {
-  text-align: center;
-  min-height: 400px;
-  padding: 10px 30px;
+  width: 800px;
+  height: 480px;
+  position: absolute;
+  inset: 0;
 }
 
 .hidden {
   display: none !important;
 }
 
-button {
-  padding: 15px 30px;
-  font-size: 22px;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  background: #eeeeee;
+
+/* =========================
+   HOME
+========================= */
+
+#home {
+  background-image: url("home.jpg");
+  background-size: 800px 480px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-button:active {
+
+/* =========================
+   PULSANTI LATERALI
+========================= */
+
+.side-button {
+  position: absolute;
+  left: 17px;
+  width: 101px;
+  height: 101px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  z-index: 10;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.side-button:active {
   transform: scale(0.96);
 }
 
-#date {
-  font-size: 25px;
-  margin-top: 10px;
+
+/* Posizioni esatte della grafica */
+
+#today-button {
+  top: 42px;
 }
 
-h1 {
-  font-size: 32px;
+#calendar-button {
+  top: 148px;
 }
+
+#message-button {
+  top: 254px;
+}
+
+#next-page-button {
+  top: 360px;
+}
+
+
+/* =========================
+   CONTENUTO HOME
+========================= */
+
+#home-content {
+  position: absolute;
+
+  left: 135px;
+  top: 0;
+
+  width: 665px;
+  height: 480px;
+
+  pointer-events: none;
+
+  color: #222;
+}
+
+
+/* Orologio */
+
+#clock {
+  position: absolute;
+
+  top: 25px;
+  right: 25px;
+
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
+/* Data */
+
+#date {
+  position: absolute;
+
+  top: 70px;
+  left: 30px;
+  right: 30px;
+
+  text-align: center;
+
+  font-size: 34px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+
+/* Rifiuti */
 
 #waste {
-  font-size: 38px;
+  position: absolute;
+
+  top: 170px;
+  left: 20px;
+  right: 20px;
+
+  text-align: center;
+
+  font-size: 42px;
   font-weight: bold;
-  margin: 25px 0;
 }
+
+
+/* Spazio per eventuale icona rifiuto */
 
 #waste-image {
-  height: 120px;
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 25px;
+
+  text-align: center;
 }
 
-.navigation {
+
+/* =========================
+   CALENDARIO
+========================= */
+
+#calendar {
+  background: #66b5e5;
+  text-align: center;
+}
+
+#home-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  width: 70px;
+  height: 55px;
+
+  border: none;
+  border-radius: 15px;
+
+  background: white;
+
+  font-size: 35px;
+  cursor: pointer;
+}
+
+#calendar-date {
+  padding-top: 45px;
+
+  font-size: 42px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+#calendar-waste {
+  margin-top: 70px;
+
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.calendar-controls {
+  position: absolute;
+
+  bottom: 25px;
+  left: 0;
+  right: 0;
+
   display: flex;
-  justify-content: space-between;
-  margin-top: 50px;
+  justify-content: center;
+  gap: 40px;
 }
 
-.notification {
-  font-size: 120px;
-  margin-top: 40px;
+.calendar-controls button {
+  width: 100px;
+  height: 65px;
+
+  border: none;
+  border-radius: 18px;
+
+  background: white;
+
+  font-size: 30px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   MESSAGGIO
+========================= */
+
+#message {
+  background: #66b5e5;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.message-icon {
+  font-size: 100px;
+}
+
+.message-title {
+  margin-top: 15px;
+
+  font-size: 38px;
+  font-weight: bold;
+}
+
+#read-button {
+  margin-top: 30px;
+
+  width: 220px;
+  height: 70px;
+
+  border: none;
+  border-radius: 20px;
+
+  background: white;
+
+  font-size: 30px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   CONTENUTO MESSAGGIO
+========================= */
+
+#message-content {
+  background: #66b5e5;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
 }
 
 #message-text {
+  width: 680px;
+  max-height: 300px;
+
+  padding: 30px;
+
+  background: white;
+  border-radius: 25px;
+
+  text-align: center;
+
   font-size: 32px;
-  margin: 50px auto;
-  max-width: 650px;
+  font-weight: bold;
+
+  overflow: auto;
 }
 
-/* Pulsante TEST invisibile */
-#test-message {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  width: 50px;
-  height: 50px;
-  opacity: 0;
-  z-index: 9999;
+#ok-button {
+  margin-top: 25px;
+
+  width: 180px;
+  height: 65px;
+
+  border: none;
+  border-radius: 18px;
+
+  background: white;
+
+  font-size: 30px;
+  font-weight: bold;
+
+  cursor: pointer;
 }
-```
+
+
+/* =========================
+   TOUCH
+========================= */
+
+button {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
