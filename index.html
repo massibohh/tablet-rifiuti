@@ -1,9 +1,8 @@
-```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=800, height=480, initial-scale=1.0">
   <title>Tablet Casa</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,77 +11,86 @@
 
   <div id="app">
 
-    <header>
-      <div id="title">📱 TABLET CASA</div>
-      <div id="clock">Caricamento...</div>
-    </header>
-
+    <!-- SFONDO DELLA HOME -->
     <main id="home">
-      <div id="date">Caricamento...</div>
 
-      <h1>OGGI</h1>
+      <!-- Pulsante OGGI -->
+      <button id="today-button" class="side-button"></button>
 
-      <div id="waste">Caricamento...</div>
+      <!-- Pulsante CALENDARIO -->
+      <button id="calendar-button" class="side-button"></button>
 
-      <div id="waste-image"></div>
+      <!-- Pulsante MESSAGGI -->
+      <button id="message-button" class="side-button"></button>
 
-      <button id="calendar-button">🗓️ CALENDARIO</button>
-    </main>
+      <!-- Pulsante AVANTI -->
+      <button id="next-page-button" class="side-button"></button>
 
 
-    <main id="calendar" class="hidden">
+      <!-- CONTENUTO DINAMICO -->
+      <div id="home-content">
 
-      <button id="home-button">🏠</button>
+        <div id="clock"></div>
 
-      <h1>🗓️ CALENDARIO</h1>
+        <div id="date"></div>
 
-      <div id="calendar-date"></div>
+        <div id="waste"></div>
 
-      <div id="calendar-waste"></div>
+        <div id="waste-image"></div>
 
-      <div class="navigation">
-        <button id="previous-button">←</button>
-        <button id="next-button">→</button>
       </div>
 
     </main>
 
 
-    <main id="message" class="hidden">
+    <!-- CALENDARIO -->
+    <main id="calendar" class="hidden">
 
-      <div class="notification">🔔</div>
+      <button id="home-button">⌂</button>
 
-      <h1>NUOVO MESSAGGIO</h1>
+      <div id="calendar-date"></div>
 
-      <button id="read-button">TOCCA PER LEGGERE</button>
+      <div id="calendar-waste"></div>
+
+      <div class="calendar-controls">
+        <button id="previous-button">◀</button>
+        <button id="next-button">▶</button>
+      </div>
 
     </main>
 
 
-    <main id="message-content" class="hidden">
+    <!-- NOTIFICA MESSAGGIO -->
+    <main id="message" class="hidden">
 
-      <h1>💬 MESSAGGIO</h1>
+      <div class="message-icon">🔔</div>
+
+      <div class="message-title">
+        NUOVO MESSAGGIO
+      </div>
+
+      <button id="read-button">
+        LEGGI
+      </button>
+
+    </main>
+
+
+    <!-- CONTENUTO MESSAGGIO -->
+    <main id="message-content" class="hidden">
 
       <div id="message-text"></div>
 
-      <button id="ok-button">OK</button>
+      <button id="ok-button">
+        OK
+      </button>
 
     </main>
 
   </div>
 
-
-  <!-- ZONA TEST INVISIBILE -->
-  <button id="test-message"></button>
-
-
-  <script>
-  document.getElementById("clock").textContent = "JS FUNZIONA!";
-</script>
-
-<script src="./data.js"></script>
-<script src="./app.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
-```
